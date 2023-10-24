@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistenza telefonica</title>
+    <style>
+        .casella {
+            margin-left: 5px;
+            margin-top: 10px;
+            margin-right: 15px;
+
+
+
+        }
+
+        div {
+
+            width: 500px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            text-align: center;
+            font-family: Tahoma;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            width: 500px;
+        }
+
+        #submit {
+            float: right;
+            margin-top: 11px;
+            font-size: 20px;
+        }
+
+        .risultato {
+            margin-top: 50px;
+            margin-left: 15px;
+            text-align: center;
+        }
+
+        #risultato {
+            overflow: hidden;
+        }
+
+
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <form id=form name="modulo1" method="post" action="#">
+        <fieldset>
+            <legend>DATI CLIENTE</legend>
+            NOME <input type="text" name="nome" class="casella" tabindex="1" size="15" maxlength="20" />
+            COGNOME <input type="text" name="cognome" class="casella" tabindex="2" size="15" maxlength="20" />
+            CODICE FISCALE <input type="text" name="cfiscale" class="casella" tabindex="3" size="16" maxlength="16" />
+            CITTA' <input type="text" name="città" class="casella" tabindex="4" size="15" maxlength="15" />
+            GESTORE TELEFONICO <input type="radio" name="operatore" value="tim" id="tim" /> TIM
+            <input type="radio" name="operatore" value="vodafone" id="vodafone" /> VODAFONE
+            <input type="radio" name="operatore" value="windtre" id="windtre" /> WIND-TRE
+            NUMERO DI TELEFONO <input type="tel" name="telefono" class="casella" tabindex="6" size="15"
+                maxlength="20" />
+            MARCA DISPOSITIVO <input type="text" name="marca" class="casella" tabindex="7" size="15" maxlength="20" />
+            MODELLO DISPOSITIVO <input type="text" name="modello" class="casella" tabindex="8" size="15"
+                maxlength="20" />
+            DESCRIZIONE PROBLEMA <textarea name="descrizione" class="casella" tabindex="9" cols="40"
+                rows="4"></textarea>
+            RECAPITO TELEFONICO <input type="tel" name="tele2" class="casella" tabindex="10" size="15" maxlength="15" />
+
+            <input type="button" name="button" id="submit" value="invia" />
+        </fieldset>
+    </form>
+
+    <div id="risultato">
+        <form name="modulo2" id="form2" method="post">
+            <table>
+                <thead>
+                    <th colspan="2">
+                        Ri-Generation – Via Pavoncelli 118, Bari<br />Ricevuta di consegna<br />
+                    </th>
+                </thead>
+                <tr>
+                    <td>Nome</td>
+                    <td id="nome" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Cognome</td>
+                    <td id="cognome" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Codice fiscale</td>
+                    <td id="cfiscale" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Città</td>
+                    <td id="città" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Gestore telefonico</td>
+                    <td id="operatore" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Numero di telefono</td>
+                    <td id="telefono" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Marca dispositivo</td>
+                    <td id="marca" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Modello dispositivo</td>
+                    <td id="modello" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Descrizione problema</td>
+                    <td id="descrizione" class="yellow"></td>
+                </tr>
+
+                <tr>
+                    <td>Recapito telefonico</td>
+                    <td id="tele2" class="yellow"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        
+
+
+                document.getElementById("submit").addEventListener("click", function () {
+                    document.getElementById("nome").innerHTML = document.modulo1.nome.value;
+                    document.getElementById("cognome").innerHTML = document.modulo1.cognome.value;
+                    document.getElementById("cfiscale").innerHTML = document.modulo1.cfiscale.value;
+                    document.getElementById("città").innerHTML = document.modulo1.città.value;
+                    document.getElementById("operatore").innerHTML = document.modulo1.operatore.value;
+                    document.getElementById("telefono").innerHTML = document.modulo1.telefono.value;
+                    document.getElementById("marca").innerHTML = document.modulo1.marca.value;
+                    document.getElementById("modello").innerHTML = document.modulo1.modello.value;
+                    document.getElementById("descrizione").innerHTML = document.modulo1.descrizione.value;
+                    document.getElementById("tele2").innerHTML = document.modulo1.tele2.value;
+                    let contatto = document.modulo1.tele2.value;
+                    let operatore = document.modulo1.operatore.value;
+
+                    if (contatto == "") {
+                        document.getElementById("tele2").innerHTML = document.modulo1.telefono.value;
+                    };
+
+                    });
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
